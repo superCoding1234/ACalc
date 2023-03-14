@@ -41,20 +41,20 @@
 
     ' operations
     Private Sub operator_Click(sender As Object, e As EventArgs) Handles plus.Click, minus.Click, multiply.Click, divide.Click
-        op = sender.Text
-        mem.Text = display.Text + " " + op
         If sop Then
             after = CDbl(display.Text)
             equal_s(op)
+            op = sender.Text
             before = total
             mem.Text = CStr(total) + " " + op
         ElseIf Not sop Then
+            op = sender.Text
+            mem.Text = display.Text + " " + op
             before = CDbl(display.Text)
             mem.Text = display.Text + " " + op
             sop = True
         End If
         display.Text = ""
-        Console.WriteLine(sop)
     End Sub
 
     ' equals
